@@ -1,0 +1,125 @@
+﻿@model MainCRM.DAL.Progs
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SubTitle = "Programs";
+}
+
+@Styles.Render("~/Content/AdminLTE/plugins/datatable")
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li><a href="#activity" data-toggle="tab">Program</a></li>
+                    <li  class="active"><a href="#timeline" data-toggle="tab">Module</a></li>
+                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" id="activity">
+                        <div class="box-header">
+                            <a href="@Url.Action("Create", "Program")">
+                                <i class="fa fa-plus"></i> <span>Add New</span>
+                            </a>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Program Name
+                                        </th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Programs)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProgramName)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit","Program", new { id = item.ProgramID })">Edit</a> |
+                                                <a href="@Url.Action("Details","Program", new { id = item.ProgramID })">Details</a> |
+                                                <a href="@Url.Action("Delete","Program", new { id = item.ProgramID })">Delete</a> |
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="active tab-pane" id="timeline">
+                        <div class="box-header">
+                            <a href="@Url.Action("Create", "Modul")">
+                                <i class="fa fa-plus"></i> <span>Add New</span>
+                            </a>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Module Title
+                                        </th>
+                                        <th>
+                                            Program Name
+                                        </th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Moduls)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ModulTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Program.ProgramName)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.ModulID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.ModulID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.ModulID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    @Scripts.Render("~/Content/AdminLTE/plugins/datatable/js")
+    @Scripts.Render("~/Scripts/program")
+    @Scripts.Render("~/Scripts/datatable")
+}
+
+
+
+
+
+

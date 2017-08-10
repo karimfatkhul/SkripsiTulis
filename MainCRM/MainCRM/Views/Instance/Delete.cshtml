@@ -1,0 +1,65 @@
+﻿@model MainCRM.Instance
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.SubTitle = "Instance";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Are you sure you want to delete @Html.DisplayFor(model => model.InstanceName) ?</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Instance Name
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.InstanceName)
+                        </dd>
+
+                        <dt>
+                            Address
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.InstanceAddress)
+                        </dd>
+
+                        <dt>
+                            Email
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.InstanceEmail)
+                        </dd>
+
+                        <dt>
+                            Phone
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.InstancePhone)
+                        </dd>
+
+                    </dl>
+                    @using (Html.BeginForm())
+                     {
+                        @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.ActionLink("Back to List", "Instances", "Target") |
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+}

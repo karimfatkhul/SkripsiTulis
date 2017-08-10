@@ -1,0 +1,78 @@
+﻿@using MainCRM.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CRM NIIT</title>
+
+    @Styles.Render("~/Content/AdminLTE/plugins/font-awesome")
+    @Styles.Render("~/Content/AdminLTE/plugins/ionicons")
+    @Styles.Render("~/Content/AdminLTE/css/custom")
+    @Styles.Render("~/Content/AdminLTE/css")
+    @Styles.Render("~/Content/AdminLTE/dist")
+    @Styles.Render("~/Content/AdminLTE/dist/skins")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="hold-transition login-page"style="height: 500px !important;">
+    <div class="login-box">
+        <div class="login-logo">
+            <a><b>NIIT</b>CRM</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group" style="min-width:100% !important">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group" style="min-width:100% !important">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+            }
+        </div>
+        <!-- /.login-box-body -->
+        
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    <footer class="login-footer">
+        <div class="col-md-12" >
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 0.0.1
+            </div>
+            <strong>Copyright &copy; 2017 <a>NIIT Student</a>.</strong> All rights
+            reserved.
+        </div>
+    </footer>
+</body>
+</html>

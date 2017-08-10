@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="niitcarev2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bidding">
+    <Key>
+      <PropertyRef Name="BiddingID" />
+    </Key>
+    <Property Name="BiddingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstanceID" Type="int" Nullable="false" />
+    <Property Name="DepartementID" Type="int" />
+    <Property Name="ProgramID" Type="int" Nullable="false" />
+    <Property Name="ModulID" Type="int" />
+    <Property Name="BiddingStatus" Type="varchar" MaxLength="7" />
+    <Property Name="BiddingInformationDetail" Type="varchar(max)" />
+    <Property Name="BiddingStage" Type="varchar" MaxLength="7" />
+    <Property Name="DateOfCurrentBidStatus" Type="datetime" />
+    <Property Name="NextStep" Type="varchar" MaxLength="50" />
+    <Property Name="DateOfNextStep" Type="datetime" />
+    <Property Name="Qualified" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="DepartementID" />
+    </Key>
+    <Property Name="DepartementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartementName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InstanceID" Type="int" />
+    <Property Name="KeyContactName" Type="varchar(max)" />
+    <Property Name="KeyContactEmail" Type="varchar" MaxLength="50" />
+    <Property Name="KeyContactPhone" Type="char" MaxLength="15" />
+    <Property Name="NumberOfStudent" Type="int" />
+  </EntityType>
+  <EntityType Name="Instance">
+    <Key>
+      <PropertyRef Name="InstanceID" />
+    </Key>
+    <Property Name="InstanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstanceName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InstanceAddress" Type="varchar(max)" />
+    <Property Name="InstanceEmail" Type="varchar" MaxLength="50" />
+    <Property Name="InstancePhone" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Modul">
+    <Key>
+      <PropertyRef Name="ModulID" />
+    </Key>
+    <Property Name="ModulID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramID" Type="int" />
+    <Property Name="ModulTitle" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ProgramID" />
+    </Key>
+    <Property Name="ProgramID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Bidding__Departe__300424B4">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="0..1" />
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="DepartementID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="DepartementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bidding__Instanc__2F10007B">
+    <End Role="Instance" Type="Self.Instance" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="InstanceID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="InstanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bidding__ModulID__31EC6D26">
+    <End Role="Modul" Type="Self.Modul" Multiplicity="0..1" />
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modul">
+        <PropertyRef Name="ModulID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="ModulID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bidding__Program__30F848ED">
+    <End Role="Program" Type="Self.Program" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departeme__Insta__1A14E395">
+    <End Role="Instance" Type="Self.Instance" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Departement" Type="Self.Departement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="InstanceID" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="InstanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Modul__ProgramID__1367E606">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Modul" Type="Self.Modul" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="Modul">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="niitcarev2ModelStoreContainer">
+    <EntitySet Name="Bidding" EntityType="Self.Bidding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departement" EntityType="Self.Departement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instance" EntityType="Self.Instance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modul" EntityType="Self.Modul" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Bidding__Departe__300424B4" Association="Self.FK__Bidding__Departe__300424B4">
+      <End Role="Departement" EntitySet="Departement" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bidding__Instanc__2F10007B" Association="Self.FK__Bidding__Instanc__2F10007B">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bidding__ModulID__31EC6D26" Association="Self.FK__Bidding__ModulID__31EC6D26">
+      <End Role="Modul" EntitySet="Modul" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bidding__Program__30F848ED" Association="Self.FK__Bidding__Program__30F848ED">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departeme__Insta__1A14E395" Association="Self.FK__Departeme__Insta__1A14E395">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Departement" EntitySet="Departement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Modul__ProgramID__1367E606" Association="Self.FK__Modul__ProgramID__1367E606">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Modul" EntitySet="Modul" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

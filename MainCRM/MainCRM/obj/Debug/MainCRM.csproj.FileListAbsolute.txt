@@ -1,0 +1,138 @@
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\csc.exe
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\System.Collections.Immutable.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\System.Reflection.Metadata.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\vbc.exe
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\VBCSCompiler.exe
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\roslyn\VBCSCompiler.exe.config
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\MainCRM.dll.config
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\MainCRM.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\MainCRM.pdb
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Antlr3.Runtime.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\EntityFramework.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\EntityFramework.SqlServer.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Core.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Cookies.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Facebook.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Google.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.OAuth.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Twitter.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Web.Infrastructure.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Newtonsoft.Json.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Owin.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Helpers.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Mvc.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Optimization.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Razor.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.WebPages.Deployment.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.WebPages.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.WebPages.Razor.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\WebGrease.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Helpers.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Mvc.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Optimization.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.Razor.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.WebPages.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.WebPages.Deployment.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\System.Web.WebPages.Razor.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Antlr3.Runtime.pdb
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Newtonsoft.Json.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\EntityFramework.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\EntityFramework.SqlServer.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Core.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Facebook.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Cookies.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.OAuth.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Google.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Twitter.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\obj\Debug\MainCRM.csprojResolveAssemblyReference.cache
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\obj\Debug\MainCRM.dll
+E:\UUL UMY\Semester 8\Skripsi\MainCRM\MainCRM\obj\Debug\MainCRM.pdb
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\csc.exe
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\System.Collections.Immutable.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\System.Reflection.Metadata.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\vbc.exe
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\VBCSCompiler.exe
+E:\skripsi\Fix\MainCRM\MainCRM\bin\roslyn\VBCSCompiler.exe.config
+E:\skripsi\Fix\MainCRM\MainCRM\bin\MainCRM.dll.config
+E:\skripsi\Fix\MainCRM\MainCRM\bin\MainCRM.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\MainCRM.pdb
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Antlr3.Runtime.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\EntityFramework.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\EntityFramework.SqlServer.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Core.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Cookies.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Facebook.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Google.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.OAuth.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Twitter.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Web.Infrastructure.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Newtonsoft.Json.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Owin.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Helpers.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Mvc.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Optimization.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Razor.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.WebPages.Deployment.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.WebPages.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.WebPages.Razor.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\WebGrease.dll
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Helpers.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Mvc.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Optimization.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.Razor.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.WebPages.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.WebPages.Deployment.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\System.Web.WebPages.Razor.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Antlr3.Runtime.pdb
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Newtonsoft.Json.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\EntityFramework.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\EntityFramework.SqlServer.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Core.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Facebook.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Cookies.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.OAuth.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Google.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.Twitter.xml
+E:\skripsi\Fix\MainCRM\MainCRM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\skripsi\Fix\MainCRM\MainCRM\obj\Debug\MainCRM.dll
+E:\skripsi\Fix\MainCRM\MainCRM\obj\Debug\MainCRM.pdb
+E:\skripsi\Fix\MainCRM\MainCRM\obj\Debug\MainCRM.csprojResolveAssemblyReference.cache

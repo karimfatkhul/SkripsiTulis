@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="niitcarev2ModelStoreContainer" CdmEntityContainer="niitcarev2Entities">
+    <EntitySetMapping Name="Biddings">
+      <EntityTypeMapping TypeName="niitcarev2Model.Bidding">
+        <MappingFragment StoreEntitySet="Bidding">
+          <ScalarProperty Name="BiddingID" ColumnName="BiddingID" />
+          <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+          <ScalarProperty Name="DepartementID" ColumnName="DepartementID" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="ModulID" ColumnName="ModulID" />
+          <ScalarProperty Name="BiddingStatus" ColumnName="BiddingStatus" />
+          <ScalarProperty Name="BiddingInformationDetail" ColumnName="BiddingInformationDetail" />
+          <ScalarProperty Name="BiddingStage" ColumnName="BiddingStage" />
+          <ScalarProperty Name="DateOfCurrentBidStatus" ColumnName="DateOfCurrentBidStatus" />
+          <ScalarProperty Name="NextStep" ColumnName="NextStep" />
+          <ScalarProperty Name="DateOfNextStep" ColumnName="DateOfNextStep" />
+          <ScalarProperty Name="Qualified" ColumnName="Qualified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departements">
+      <EntityTypeMapping TypeName="niitcarev2Model.Departement">
+        <MappingFragment StoreEntitySet="Departement">
+          <ScalarProperty Name="DepartementID" ColumnName="DepartementID" />
+          <ScalarProperty Name="DepartementName" ColumnName="DepartementName" />
+          <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+          <ScalarProperty Name="KeyContactName" ColumnName="KeyContactName" />
+          <ScalarProperty Name="KeyContactEmail" ColumnName="KeyContactEmail" />
+          <ScalarProperty Name="KeyContactPhone" ColumnName="KeyContactPhone" />
+          <ScalarProperty Name="NumberOfStudent" ColumnName="NumberOfStudent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instances">
+      <EntityTypeMapping TypeName="niitcarev2Model.Instance">
+        <MappingFragment StoreEntitySet="Instance">
+          <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+          <ScalarProperty Name="InstanceName" ColumnName="InstanceName" />
+          <ScalarProperty Name="InstanceAddress" ColumnName="InstanceAddress" />
+          <ScalarProperty Name="InstanceEmail" ColumnName="InstanceEmail" />
+          <ScalarProperty Name="InstancePhone" ColumnName="InstancePhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moduls">
+      <EntityTypeMapping TypeName="niitcarev2Model.Modul">
+        <MappingFragment StoreEntitySet="Modul">
+          <ScalarProperty Name="ModulID" ColumnName="ModulID" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="ModulTitle" ColumnName="ModulTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="niitcarev2Model.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

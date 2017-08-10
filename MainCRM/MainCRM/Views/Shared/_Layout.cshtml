@@ -1,0 +1,171 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CRM NIIT</title>
+
+    @Styles.Render("~/Content/AdminLTE/plugins/font-awesome")
+    @Styles.Render("~/Content/AdminLTE/plugins/ionicons")
+    @Styles.Render("~/Content/AdminLTE/css/custom")
+    @Styles.Render("~/Content/AdminLTE/css")
+    @Styles.Render("~/Content/AdminLTE/dist")
+    @Styles.Render("~/Content/AdminLTE/dist/skins")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>NI</b>IT</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>NIIT</b>care</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/Content/AdminLTE/img/user6-128x128.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">
+                                @Html.Label(User.Identity.GetUserName())   
+                                </span>
+                            </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="~/Content/AdminLTE/img/user6-128x128.jpg" class="img-circle" alt="User Image">
+
+                                <p>
+                                    Fatkhul Karim - Web Developer
+                                    <small>Member since Nov. 2017</small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="@Url.Action("Login", "Account")" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" id="left-sidebar-menu-dash">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview" id="left-sidebar-menu-dashboard">
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="treeview" id="left-sidebar-menu-tables">
+                        <a href="@Url.Action("Instances", "Departement")">
+                            <i class="fa fa-user"></i>
+                            <span>Target</span>
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right"></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Instances", "Target")"><i class="fa fa-circle-o"></i> All Target</a></li>
+                            <li id="left-sidebar-menu-tables-create"><a href="@Url.Action("Create", "Instance")"><i class="fa fa-circle-o"></i> Add Instance</a></li>
+                            <li id="left-sidebar-menu-tables-createdept"><a href="@Url.Action("Create", "Target ")"><i class="fa fa-circle-o"></i> Add Departement</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="treeview" id="left-sidebar-menu-program">
+                        <a href="@Url.Action("Programs", "Modul")">
+                            <i class="fa fa-files-o"></i>
+                            <span>Program</span>
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right"></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-program-data"><a href="@Url.Action("Programs", "Modul")"><i class="fa fa-circle-o"></i> All Program</a></li>
+                            <li id="left-sidebar-menu-program-create"><a href="@Url.Action("Create", "Program")"><i class="fa fa-circle-o"></i> Add Program</a></li>
+                            <li id="left-sidebar-menu-program-createmod"><a href="@Url.Action("Create", "Modul")"><i class="fa fa-circle-o"></i> Add Module</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="left-sidebar-menu-bid">
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>Bidding</span>
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right"></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-bid-data"><a href="@Url.Action("Index", "Bidding")"><i class="fa fa-circle-o"></i> All Bidding</a></li>
+                            <li id="left-sidebar-menu-bid-create"><a href="@Url.Action("Create", "Bidding")"><i class="fa fa-circle-o"></i> Sent Bidding</a></li>
+                            <li id="left-sidebar-menu-bid-allow"><a href="@Url.Action("Create", "Modul")"><i class="fa fa-circle-o"></i> Allowed Bidding</a></li>
+                            <li id="left-sidebar-menu-bid-pending"><a href="@Url.Action("Create", "Modul")"><i class="fa fa-circle-o"></i> Pending Bidding</a></li>
+                            <li id="left-sidebar-menu-bid-fail"><a href="@Url.Action("Create", "Modul")"><i class="fa fa-circle-o"></i> Failed Bidding</a></li>
+                            <li id="left-sidebar-menu-bid-success"><a href="@Url.Action("Create", "Modul")"><i class="fa fa-circle-o"></i>Success Bidding</a></li>
+                        </ul>
+                    </li>
+                    <li class="header">LABELS</li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper"style="min-height: 950px !important;">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    @ViewBag.Title
+                    <small>@ViewBag.SubTitle</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Content("~")"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">@ViewBag.Title</li>
+                </ol>
+            </section>
+            <!-- Main content -->
+            @RenderBody()
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 0.0.1
+            </div>
+            <strong>Copyright &copy; 2017 <a href="www.niit.com">NIIT Student</a>.</strong> All rights
+            reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Content/AdminLTE/plugins/jquery/js")
+    @RenderSection("menu", required: false)
+    @Scripts.Render("~/Content/AdminLTE/css/js")
+    @Scripts.Render("~/Content/AdminLTE/plugins/slimscroll")
+    @Scripts.Render("~/Content/AdminLTE/plugins/fastclick")
+    @Scripts.Render("~/Content/AdminLTE/dist/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

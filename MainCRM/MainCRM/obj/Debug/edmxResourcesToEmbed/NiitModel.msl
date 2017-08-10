@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="basmallahModelStoreContainer" CdmEntityContainer="basmallahEntities">
+    <EntitySetMapping Name="Biddings">
+      <EntityTypeMapping TypeName="basmallahModel.Bidding">
+        <MappingFragment StoreEntitySet="Bidding">
+          <ScalarProperty Name="BiddingID" ColumnName="BiddingID" />
+          <ScalarProperty Name="InstansiID" ColumnName="InstansiID" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="States" ColumnName="States" />
+          <ScalarProperty Name="Keterangan" ColumnName="Keterangan" />
+          <ScalarProperty Name="TanggalMulai" ColumnName="TanggalMulai" />
+          <ScalarProperty Name="TanggalKonfirm" ColumnName="TanggalKonfirm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departements">
+      <EntityTypeMapping TypeName="basmallahModel.Departement">
+        <MappingFragment StoreEntitySet="Departement">
+          <ScalarProperty Name="DepartementID" ColumnName="DepartementID" />
+          <ScalarProperty Name="NamaDepartement" ColumnName="NamaDepartement" />
+          <ScalarProperty Name="InstansiID" ColumnName="InstansiID" />
+          <ScalarProperty Name="NamaManager" ColumnName="NamaManager" />
+          <ScalarProperty Name="EmailManager" ColumnName="EmailManager" />
+          <ScalarProperty Name="PhoneManager" ColumnName="PhoneManager" />
+          <ScalarProperty Name="JumlahSiswa" ColumnName="JumlahSiswa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instansis">
+      <EntityTypeMapping TypeName="basmallahModel.Instansi">
+        <MappingFragment StoreEntitySet="Instansi">
+          <ScalarProperty Name="InstansiID" ColumnName="InstansiID" />
+          <ScalarProperty Name="NamaInstansi" ColumnName="NamaInstansi" />
+          <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moduls">
+      <EntityTypeMapping TypeName="basmallahModel.Modul">
+        <MappingFragment StoreEntitySet="Modul">
+          <ScalarProperty Name="ModulID" ColumnName="ModulID" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="JudulModul" ColumnName="JudulModul" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="basmallahModel.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="NamaProgram" ColumnName="NamaProgram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

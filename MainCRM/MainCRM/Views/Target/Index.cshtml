@@ -1,0 +1,178 @@
+﻿@model IEnumerable<MainCRM.Departement>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SubTitle = "Targets";
+}
+
+
+
+
+@section Menu {
+    @Scripts.Render("~/Scripts/datatable/menu")
+}
+
+@Styles.Render("~/Content/AdminLTE/plugins/datatable")
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#activity" data-toggle="tab">Instance</a></li>
+                    <li><a href="#timeline" data-toggle="tab">Timeline</a></li>
+                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="timeline">
+                        <div class="box-header">
+                            <a href="@Url.Action("Create", "Departement")">
+                                <i class="fa fa-plus"></i> <span>Add New</span>
+                            </a>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DepartementName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.KeyContactName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.KeyContactEmail)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.KeyContactPhone)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NumberOfStudent)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Instance.InstanceName)
+                                        </th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DepartementName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyContactName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyContactEmail)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyContactPhone)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumberOfStudent)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Instance.InstanceNamee)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.DepartementID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.DepartementID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.DepartementID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    @Scripts.Render("~/Content/AdminLTE/plugins/datatable/js")
+    @Scripts.Render("~/Scripts/datatable")
+}
+
+
+
+
+@*
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartementName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyContactEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyContactPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfStudent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instance.NamaInstance)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartementName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyContactEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyContactPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfStudent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instance.NamaInstance)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.DepartementID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.DepartementID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.DepartementID })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@

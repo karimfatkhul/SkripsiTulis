@@ -1,0 +1,42 @@
+﻿@model MainCRM.Program
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.SubTitle = "Program";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Details For @Html.DisplayFor(model => model.ProgramName)</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Program Name
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ProgramName)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            @Html.ActionLink("Back to List", "Programs", "Modul") |
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.ProgramID })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/Scripts/program")
+}

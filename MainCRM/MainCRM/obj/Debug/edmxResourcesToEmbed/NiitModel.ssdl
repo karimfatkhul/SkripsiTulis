@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="basmallahModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bidding">
+    <Key>
+      <PropertyRef Name="BiddingID" />
+    </Key>
+    <Property Name="BiddingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstansiID" Type="int" />
+    <Property Name="ProgramID" Type="int" />
+    <Property Name="States" Type="varchar(max)" />
+    <Property Name="Keterangan" Type="varchar(max)" />
+    <Property Name="TanggalMulai" Type="time" Precision="7" />
+    <Property Name="TanggalKonfirm" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="DepartementID" />
+    </Key>
+    <Property Name="DepartementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamaDepartement" Type="varchar" MaxLength="280" Nullable="false" />
+    <Property Name="InstansiID" Type="int" />
+    <Property Name="NamaManager" Type="varchar(max)" />
+    <Property Name="EmailManager" Type="varchar" MaxLength="120" />
+    <Property Name="PhoneManager" Type="char" MaxLength="15" />
+    <Property Name="JumlahSiswa" Type="int" />
+  </EntityType>
+  <EntityType Name="Instansi">
+    <Key>
+      <PropertyRef Name="InstansiID" />
+    </Key>
+    <Property Name="InstansiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamaInstansi" Type="varchar" MaxLength="280" Nullable="false" />
+    <Property Name="Alamat" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar" MaxLength="120" />
+    <Property Name="Phone" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Modul">
+    <Key>
+      <PropertyRef Name="ModulID" />
+    </Key>
+    <Property Name="ModulID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramID" Type="int" />
+    <Property Name="JudulModul" Type="varchar" MaxLength="280" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ProgramID" />
+    </Key>
+    <Property Name="ProgramID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamaProgram" Type="varchar" MaxLength="280" />
+  </EntityType>
+  <Association Name="FK__Bidding__Instans__276EDEB3">
+    <End Role="Instansi" Type="Self.Instansi" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instansi">
+        <PropertyRef Name="InstansiID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="InstansiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bidding__Program__286302EC">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departeme__Insta__24927208">
+    <End Role="Instansi" Type="Self.Instansi" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Departement" Type="Self.Departement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instansi">
+        <PropertyRef Name="InstansiID" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="InstansiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Modul__ProgramID__1367E606">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Modul" Type="Self.Modul" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="Modul">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="basmallahModelStoreContainer">
+    <EntitySet Name="Bidding" EntityType="Self.Bidding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departement" EntityType="Self.Departement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instansi" EntityType="Self.Instansi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modul" EntityType="Self.Modul" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Bidding__Instans__276EDEB3" Association="Self.FK__Bidding__Instans__276EDEB3">
+      <End Role="Instansi" EntitySet="Instansi" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bidding__Program__286302EC" Association="Self.FK__Bidding__Program__286302EC">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departeme__Insta__24927208" Association="Self.FK__Departeme__Insta__24927208">
+      <End Role="Instansi" EntitySet="Instansi" />
+      <End Role="Departement" EntitySet="Departement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Modul__ProgramID__1367E606" Association="Self.FK__Modul__ProgramID__1367E606">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Modul" EntitySet="Modul" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

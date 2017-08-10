@@ -1,0 +1,179 @@
+﻿@model MainCRM.Bidding
+
+@{
+    ViewBag.Title = "Compose";
+    ViewBag.SubTitle = "Bidding";
+}
+
+@Styles.Render("~/Content/AdminLTE/plugins/bootstrap-wysihtml5")
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a>
+
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Folders</h3>
+
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-inbox"></i> Inbox
+                                <span class="label label-primary pull-right">12</span>
+                            </a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
+                        <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Compose New Bidding</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.InstanceID, "InstanceID", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownList("InstanceID", null, "To:", htmlAttributes: new { @class = "form-control", @placeholder = "To", @id = "Insta" })
+                                @Html.ValidationMessageFor(model => model.InstanceID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DepartementID, "DepartementID", htmlAttributes: new { @class = "control-label " })
+                                @Html.DropDownList("DepartementID", null, "Cc:", htmlAttributes: new { @class = "form-control", @placeholder = "Cc", @id = "Dept" })
+                                @Html.ValidationMessageFor(model => model.DepartementID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ProgramID, "ProgramID", htmlAttributes: new { @class = "control-label " })
+                                @Html.DropDownList("ProgramID", null, "Select Program", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProgramID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ModulID, "ModulID", htmlAttributes: new { @class = "control-label " })
+                                @Html.DropDownList("ModulID", null, "Select Modul", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ModulID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <hr />
+                        </div>
+                        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Subject</label>
+                                    <input class="form-control" placeholder="Subject:">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Message Body</label>
+                                    <textarea id="compose-textarea" class="form-control" style="height: 300px">
+                                        <h1><u>Heading Of Message</u></h1>
+                                        <h4>Subheading</h4>
+                                        <p>
+                                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
+                                            was born and I will give you a complete account of the system, and expound the actual teachings
+                                            of the great explorer of the truth, the master-builder of human happiness. No one rejects,
+                                            dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know
+                                            how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again
+                                            is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
+                                            but because occasionally circumstances occur in which toil and pain can procure him some great
+                                            pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise,
+                                            except to obtain some advantage from it? But who has any right to find fault with a man who
+                                            chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that
+                                            produces no resultant pleasure? On the other hand, we denounce with righteous indignation and
+                                            dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so
+                                            blinded by desire, that they cannot foresee
+                                        </p>
+                                        <ul>
+                                            <li>List item one</li>
+                                            <li>List item two</li>
+                                            <li>List item three</li>
+                                            <li>List item four</li>
+                                        </ul>
+                                        <p>Thank you,</p>
+                                        <p>John Doe</p>
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn btn-default btn-file">
+                                        <i class="fa fa-paperclip"></i> Attachment
+                                        <input type="file" name="attachment">
+                                    </div>
+                                    <p class="help-block">Max. 32MB</p>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        @Html.ActionLink("Back to List", "Index")  |
+                                        <input type="submit" value="Send" class="btn btn-default" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            }
+                        </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+@section Scripts{
+    @Scripts.Render("~/Content/AdminLTE/plugins/bootstrap-wysihtml5/js");
+    @Scripts.Render("~/Scripts/bidding/sent")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(function () {
+        $('#Insta').change(function () {
+            $('#Dept').html("Cc:");
+            $.getJSON('/Bidding/GetDepartement/' + $('#Insta').val(), function (data) {
+                $.each(data, function (i, state) {
+                    $("#Dept").append(
+                    '<option value=' + state.Value + '>' + state.Text + '</option>')
+                });
+            });
+        });
+    });
+    $(function () {
+        $('#Prog').change(function () {
+            $('#Mod').html("Select Modul");
+            $.getJSON('/Bidding/GetModul/' + $('#Prog').val(), function (data) {
+                $.each(data, function (i, state) {
+                    $("#Mod").append(
+                    '<option value=' + state.Value + '>' + state.Text + '</option>')
+                });
+            });
+        });
+    });
+    </script>
+}
+
+

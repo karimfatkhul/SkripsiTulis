@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="niitcareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bidding">
+    <Key>
+      <PropertyRef Name="BiddingID" />
+    </Key>
+    <Property Name="BiddingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartementID" Type="Int32" />
+    <Property Name="ProgramID" Type="Int32" />
+    <Property Name="States" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Keterangan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TanggalMulai" Type="Time" Precision="7" />
+    <Property Name="TanggalKonfirm" Type="Time" Precision="7" />
+    <NavigationProperty Name="Departement" Relationship="Self.FK__Bidding__Departe__36B12243" FromRole="Bidding" ToRole="Departement" />
+    <NavigationProperty Name="Program" Relationship="Self.FK__Bidding__Program__37A5467C" FromRole="Bidding" ToRole="Program" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="DepartementID" />
+    </Key>
+    <Property Name="DepartementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamaDepartement" Type="String" MaxLength="280" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InstansiID" Type="Int32" />
+    <Property Name="NamaManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmailManager" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneManager" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="JumlahSiswa" Type="Int32" />
+    <NavigationProperty Name="Biddings" Relationship="Self.FK__Bidding__Departe__36B12243" FromRole="Departement" ToRole="Bidding" />
+    <NavigationProperty Name="Instansi" Relationship="Self.FK__Departeme__Insta__1A14E395" FromRole="Departement" ToRole="Instansi" />
+  </EntityType>
+  <EntityType Name="Instansi">
+    <Key>
+      <PropertyRef Name="InstansiID" />
+    </Key>
+    <Property Name="InstansiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamaInstansi" Type="String" MaxLength="280" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alamat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Departements" Relationship="Self.FK__Departeme__Insta__1A14E395" FromRole="Instansi" ToRole="Departement" />
+  </EntityType>
+  <EntityType Name="Modul">
+    <Key>
+      <PropertyRef Name="ModulID" />
+    </Key>
+    <Property Name="ModulID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProgramID" Type="Int32" />
+    <Property Name="JudulModul" Type="String" MaxLength="280" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Program" Relationship="Self.FK__Modul__ProgramID__1367E606" FromRole="Modul" ToRole="Program" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ProgramID" />
+    </Key>
+    <Property Name="ProgramID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamaProgram" Type="String" MaxLength="280" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Biddings" Relationship="Self.FK__Bidding__Program__37A5467C" FromRole="Program" ToRole="Bidding" />
+    <NavigationProperty Name="Moduls" Relationship="Self.FK__Modul__ProgramID__1367E606" FromRole="Program" ToRole="Modul" />
+  </EntityType>
+  <Association Name="FK__Bidding__Departe__36B12243">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="DepartementID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="DepartementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bidding__Program__37A5467C">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departeme__Insta__1A14E395">
+    <End Role="Instansi" Type="Self.Instansi" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Departement" Type="Self.Departement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instansi">
+        <PropertyRef Name="InstansiID" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="InstansiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Modul__ProgramID__1367E606">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Modul" Type="Self.Modul" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramID" />
+      </Principal>
+      <Dependent Role="Modul">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="niitcareEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Biddings" EntityType="Self.Bidding" />
+    <EntitySet Name="Departements" EntityType="Self.Departement" />
+    <EntitySet Name="Instansis" EntityType="Self.Instansi" />
+    <EntitySet Name="Moduls" EntityType="Self.Modul" />
+    <EntitySet Name="Programs" EntityType="Self.Program" />
+    <AssociationSet Name="FK__Bidding__Departe__36B12243" Association="Self.FK__Bidding__Departe__36B12243">
+      <End Role="Departement" EntitySet="Departements" />
+      <End Role="Bidding" EntitySet="Biddings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bidding__Program__37A5467C" Association="Self.FK__Bidding__Program__37A5467C">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Bidding" EntitySet="Biddings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departeme__Insta__1A14E395" Association="Self.FK__Departeme__Insta__1A14E395">
+      <End Role="Instansi" EntitySet="Instansis" />
+      <End Role="Departement" EntitySet="Departements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Modul__ProgramID__1367E606" Association="Self.FK__Modul__ProgramID__1367E606">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Modul" EntitySet="Moduls" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

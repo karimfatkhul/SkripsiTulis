@@ -1,0 +1,81 @@
+﻿@model MainCRM.Departement
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.SubTtle = "Departement";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Are you sure you want to delete @Html.DisplayFor(model => model.DepartementName) ?</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Departement Name
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DepartementName)
+                        </dd>
+
+                        <dt>
+                            Manager Name
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KeyContactName)
+                        </dd>
+
+                        <dt>
+                            Manager Email
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KeyContactEmail)
+                        </dd>
+
+                        <dt>
+                            Manager Phone
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KeyContactPhone)
+                        </dd>
+
+                        <dt>
+                            Number of Student
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NumberOfStudent)
+                        </dd>
+
+                        <dt>
+                            Instance Name
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Instance.InstanceName)
+                        </dd>
+                    </dl>
+                        @using (Html.BeginForm())
+                        {
+                        @Html.AntiForgeryToken() 
+                    <div class="form-group">
+                        @Html.ActionLink("Back to List", "Departements", "Departement") |
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                    </div>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+
+}

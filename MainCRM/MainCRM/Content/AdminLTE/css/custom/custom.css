@@ -1,0 +1,57 @@
+﻿/*login*/
+.login-page, .register-page
+{
+    background:url("../../img/login_bg.jpg") !important;
+}
+.login-page .form-group, .register-page .form-group
+{
+    margin-bottom:25px !important;
+}
+.login-box-body, .register-box-body{
+    background-color:transparent !important;
+    color:white !important;
+}
+.login-logo a, .register-logo a{
+    color:white !important;
+}
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn
+{
+    border-radius:4px !important;
+}
+footer.login-footer{
+    position: absolute;
+    bottom: 0;
+    background:#313235;
+    padding:10px;
+    width:100%;
+    color:white;
+}
+/*select2*/
+.select2-container .select2-selection--single
+{
+    background-color: #fff;
+    border: 1px solid #d2d6de !important;
+    border-radius: 0 !important;
+}
+
+/*data table*/
+.dataTables_length
+{
+    float:left !important;
+}
+dt {
+    font-weight: 600 !important;
+}
+@media (min-width: 768px)
+{
+    .dl-horizontal dt 
+    {
+    white-space: pre-line !important;
+    }
+    .dl-horizontal dd 
+    {
+    margin-left: 200px !important;
+    white-space: pre-line !important;
+    }
+}
+

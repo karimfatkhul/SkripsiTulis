@@ -1,0 +1,161 @@
+﻿@model MainCRM.DAL.Target
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SubTitle = "Targets";
+}
+
+@Styles.Render("~/Content/AdminLTE/plugins/datatable")
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#activity" data-toggle="tab">Instance</a></li>
+                    <li><a href="#timeline" data-toggle="tab">Departement</a></li>
+                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+                        <div class="box-header">
+                            <a href="@Url.Action("Create", "Instance")">
+                                <i class="fa fa-plus"></i> <span>Add New</span>
+                            </a>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Instance Name
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Phone
+                                        </th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Instans)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.InstanceName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.InstanceAddress)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.InstanceEmail)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.InstancePhone)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit","Instance", new { id = item.InstanceID })">Edit</a> |
+                                                <a href="@Url.Action("Details","Instance", new { id = item.InstanceID })">Details</a> |
+                                                <a href="@Url.Action("Delete","Instance", new { id = item.InstanceID })">Delete</a> |
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="timeline">
+                        <div class="box-header">
+                            <a href="@Url.Action("Create", "Target")">
+                                <i class="fa fa-plus"></i> <span>Create New</span>
+                            </a>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Departement Name
+                                        </th>
+                                        <th>
+                                            Manager Name
+                                        </th>
+                                        <th>
+                                            Manager Emails
+                                        </th>
+                                        <th>
+                                            Manager Phones
+                                        </th>
+                                        <th>
+                                            Number of Student
+                                        </th>
+                                        <th>
+                                            Instance Name
+                                        </th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Departs)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DepartementName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyContactName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyContactEmail)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyContactPhone)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumberOfStudent)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Instance.InstanceName)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.DepartementID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.DepartementID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.DepartementID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    @Scripts.Render("~/Content/AdminLTE/plugins/datatable/js")
+    @Scripts.Render("~/Scripts/datatable")
+    @Scripts.Render("~/Scripts/datatable/menutarget")
+}

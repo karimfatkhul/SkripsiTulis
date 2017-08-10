@@ -1,0 +1,116 @@
+﻿@model MainCRM.Bidding
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.SubTitle = "Bidding";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Details For Bidding @Html.DisplayFor(model => model.BiddingID)</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BiddingStatus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.BiddingStatus)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BiddingInformationDetail)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.BiddingInformationDetail)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BiddingStage)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.BiddingStage)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateOfCurrentBidStatus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DateOfCurrentBidStatus)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NextStep)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NextStep)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateOfNextStep)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DateOfNextStep)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Qualified)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Qualified)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Departement.DepartementName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Departement.DepartementName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Instance.InstanceName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Instance.InstanceName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Modul.ModulTitle)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Modul.ModulTitle)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Program.ProgramName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Program.ProgramName)
+                        </dd>
+                    </dl>
+                    <div class="form-group">
+                        @Html.ActionLink("Back to List", "Index", "Bidding") |
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.BiddingID })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/Scripts/bidding")
+
+}

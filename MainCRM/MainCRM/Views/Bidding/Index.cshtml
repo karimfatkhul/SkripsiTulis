@@ -1,0 +1,97 @@
+﻿@model IEnumerable<MainCRM.Bidding>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SubTitle = "Bidding";
+}
+@Styles.Render("~/Content/AdminLTE/plugins/datatable")
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    @*<h3 class="box-title">Bidding List</h3>*@
+                    <a href="@Url.Action("Create", "Bidding")">
+                        <i class="fa fa-plus"></i> <span>Sent New Bidding</span>
+                    </a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="example1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BiddingStatus)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BiddingStage)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateOfCurrentBidStatus)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NextStep)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateOfNextStep)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Qualified)
+                                        </th>                                        
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Instance.InstanceName)
+                                        </th>
+                                        <th>Options</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BiddingStatus)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BiddingStage)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateOfCurrentBidStatus)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NextStep)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateOfNextStep)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Qualified)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Instance.InstanceName)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.BiddingID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.BiddingID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.BiddingID })
+                                            </td>
+                                        </tr>
+                                    }
+                                 </tbody>
+                                    
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    @Scripts.Render("~/Content/AdminLTE/plugins/datatable/js")
+    @Scripts.Render("~/Scripts/bidding")
+}

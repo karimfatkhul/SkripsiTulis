@@ -1,0 +1,53 @@
+﻿@model MainCRM.Modul
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.SubTitle = "Module";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Are you sure you want to delete @Html.DisplayFor(model => model.ModulTitle) ?</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Module Title
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ModulTitle)
+                        </dd>
+
+                        <dt>
+                            Program Name
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Program.ProgramName)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            @Html.ActionLink("Back to List", "Moduls") |
+                            <input type="submit" value="Delete" class="btn btn-default" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/Scripts/program")
+}
+
+
