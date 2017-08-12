@@ -4,6 +4,8 @@
     ViewBag.Title = "Edit";
     ViewBag.SubTitle = "Bidding";
 }
+@Styles.Render("~/Content/AdminLTE/plugins/select2")
+@Styles.Render("~/Content/AdminLTE/plugins/datetimepicker")
 <section class="content">
     <div class="row">
         <div class="col-md-12">
@@ -16,105 +18,110 @@
                    {
                     @Html.AntiForgeryToken()
 
-                    <div class="form-horizontal">
-                        <h4>Bidding</h4>
-                        <hr />
+                    <div class="col-md-6">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.BiddingID)
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.InstanceID, "InstanceID", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("InstanceID", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.InstanceID, "", new { @class = "text-danger" })
-                            </div>
+                            @Html.LabelFor(model => model.InstanceID, "InstanceID", htmlAttributes: new { @class = "control-label " })
+                            @Html.DropDownList("InstanceID", null, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "width: 100 %",@id="1" })
+                            @Html.ValidationMessageFor(model => model.InstanceID, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.DepartementID, "DepartementID", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("DepartementID", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.DepartementID, "", new { @class = "text-danger" })
-                            </div>
+                            @Html.LabelFor(model => model.DepartementID, "DepartementID", htmlAttributes: new { @class = "control-label " })
+
+                            @Html.DropDownList("DepartementID", null, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "width: 100 %", @id = "2"})
+                            @Html.ValidationMessageFor(model => model.DepartementID, "", new { @class = "text-danger" })
+
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramID, "ProgramID", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("ProgramID", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProgramID, "", new { @class = "text-danger" })
-                            </div>
+                            @Html.LabelFor(model => model.ProgramID, "ProgramID", htmlAttributes: new { @class = "control-label " })
+
+                            @Html.DropDownList("ProgramID", null, htmlAttributes: new { @class = "form-control select2 " })
+                            @Html.ValidationMessageFor(model => model.ProgramID, "", new { @class = "text-danger" })
+
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.ModulID, "ModulID", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("ModulID", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ModulID, "", new { @class = "text-danger" })
-                            </div>
+                            @Html.LabelFor(model => model.ModulID, "ModulID", htmlAttributes: new { @class = "control-label " })
+
+                            @Html.DropDownList("ModulID", null, htmlAttributes: new { @class = "form-control select2 " })
+                            @Html.ValidationMessageFor(model => model.ModulID, "", new { @class = "text-danger" })
+
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.BiddingStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.BiddingStatus, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.BiddingStatus, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                            @Html.LabelFor(model => model.BiddingStatus, htmlAttributes: new { @class = "control-label " })
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.BiddingInformationDetail, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.BiddingInformationDetail, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.BiddingInformationDetail, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                            @Html.EditorFor(model => model.BiddingStatus, null, new { htmlAttributes = new { @class = "form-control select2", @id = "Mod" } })
+                            @Html.ValidationMessageFor(model => model.BiddingStatus, "", new { @class = "text-danger" })
 
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.BiddingStage, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.BiddingInformationDetail, htmlAttributes: new { @class = "control-label " })
+
+                            @Html.EditorFor(model => model.BiddingInformationDetail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BiddingInformationDetail, "", new { @class = "text-danger" })
+
+                        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BiddingStage, htmlAttributes: new { @class = "control-label " })
+
                                 @Html.EditorFor(model => model.BiddingStage, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.BiddingStage, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DateOfCurrentBidStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.DateOfCurrentBidStatus, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DateOfCurrentBidStatus, htmlAttributes: new { @class = "control-label " })
+                                <div class="input-group date"id = "datetimepicker2">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    @Html.EditorFor(model => model.DateOfCurrentBidStatus , new { htmlAttributes = new { @class = "form-control pull-right"} })
+                                </div>
                                 @Html.ValidationMessageFor(model => model.DateOfCurrentBidStatus, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NextStep, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.NextStep, htmlAttributes: new { @class = "control-label " })
+
                                 @Html.EditorFor(model => model.NextStep, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NextStep, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DateOfNextStep, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.DateOfNextStep, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DateOfNextStep, htmlAttributes: new { @class = "control-label " })
+                                <div class="input-group date" id="datetimepicker3">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    @Html.EditorFor(model => model.DateOfNextStep, new { htmlAttributes = new { @class = "form-control pull-right" } })
+                                </div>
                                 @Html.ValidationMessageFor(model => model.DateOfNextStep, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Qualified, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Qualified, htmlAttributes: new { @class = "control-label " })
+
                                 @Html.EditorFor(model => model.Qualified, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Qualified, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group">
-                            @Html.ActionLink("Back to List", "Index", "Bidding")  |
-                            <a href=""><input type="submit" value="Save" class="btn btn-default" /></a>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.ActionLink("Back to List", "Index", "Bidding")  |
+                                <a href=""><input type="submit" value="Save" class="btn btn-default" id="sap" /></a>
 
+                            </div>
                         </div>
-                    </div>
                    }
 
                 </div>
@@ -125,6 +132,42 @@
     </div>
 </section>
 @section Scripts {
+    @Scripts.Render("~/Content/AdminLTE/plugins/select2/js")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/bidding")
+    @Scripts.Render("~/Scripts/select2")
+
+<script>
+    $(function () {
+        $(document).ready(function () {
+            $("#Mod").append(
+                   '<option>Active</option>',
+                   '<option>Allowed</option>',
+                   '<option>Pending</option>',
+                   '<option>Failed</option>',
+                   '<option>Success</option>'
+           )
+        });
+    });
+    $(function () {
+        $('#').change(function () {
+            $('#Mod').html(null);
+            $.getJSON('/Bidding/GetModul/' + $('#Prog').val(), function (data) {
+                $("#Mod").append(
+                 '<option>Select Modul</option>'
+                 )
+                $.each(data, function (i, state) {
+                    $("#Mod").append(
+                    '<option value=' + state.Value + '>' + state.Text + '</option>')
+                });
+            });
+        });
+    });
+    $(function () {
+        $('#sap').click(function () {
+            $('#1').prop("disabled", false);
+            $('#2').prop("disabled", false); 
+        });
+    });
+</script>
 }

@@ -23,7 +23,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>NI</b>IT</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>NIIT</b>care</span>
+                <span class="logo-lg"><b>NIIT</b>crm</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -91,7 +91,7 @@
                         <ul class="treeview-menu">
                             <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Instances", "Target")"><i class="fa fa-circle-o"></i> All Target</a></li>
                             <li id="left-sidebar-menu-tables-create"><a href="@Url.Action("Create", "Instance")"><i class="fa fa-circle-o"></i> Add Instance</a></li>
-                            <li id="left-sidebar-menu-tables-createdept"><a href="@Url.Action("Create", "Target ")"><i class="fa fa-circle-o"></i> Add Departement</a></li>
+                            <li id="left-sidebar-menu-tables-createdept"><a href="@Url.Action("Create", "Target")"><i class="fa fa-circle-o"></i> Add Departement</a></li>
 
                         </ul>
                     </li>
@@ -144,7 +144,8 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="@Url.Content("~")"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">@ViewBag.Title</li>
+                    <li>@ViewBag.Title</li>
+                    <li  class="active">@ViewBag.SubTitle</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -166,6 +167,7 @@
     @Scripts.Render("~/Content/AdminLTE/plugins/slimscroll")
     @Scripts.Render("~/Content/AdminLTE/plugins/fastclick")
     @Scripts.Render("~/Content/AdminLTE/dist/js")
+    @Scripts.Render("~/Content/AdminLTE/plugins/datetimepicker/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

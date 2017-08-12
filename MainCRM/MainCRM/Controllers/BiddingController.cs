@@ -45,8 +45,23 @@ namespace MainCRM.Controllers
         public JsonResult GetModul(int? id)
         {
             //Departement bid = new Departement();
-            ViewBag.ModuleID = from s in db.Moduls where s.ProgramID == id select s;
-            return Json(new SelectList(ViewBag.ModulID, "ModulID", "ModuleTitle"), JsonRequestBehavior.AllowGet);
+            ViewBag.ModulID = from s in db.Moduls where s.ProgramID == id select s;
+            return Json(new SelectList(ViewBag.ModulID, "ModulID", "ModulTitle"), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetStatus()
+        {
+            //Departement bid = new Departement();
+            //ViewBag.Status = from s in db.Moduls where s.ProgramID == id select s;
+            return Json(new SelectList(ViewBag.ModulID, "ModulID", "ModulTitle"), JsonRequestBehavior.AllowGet);
+        }
+
+        static DateTime GetNextWeekday(DayOfWeek day)
+        {
+            DateTime result = DateTime.Now.AddDays(1);
+            while (result.DayOfWeek != day)
+                result = result.AddDays(1);
+            return result;
         }
 
         // GET: Bidding/Create
@@ -68,6 +83,11 @@ namespace MainCRM.Controllers
         {
             if (ModelState.IsValid)
             {
+                DateTime now = DateTime.Now;
+                bidding.DateOfCurrentBidStatus = now;
+                bidding.DateOfNextStep = now.AddDays(7);
+                bidding.BiddingStage = "Stage1";
+                bidding.BiddingStatus = "Active";
                 db.Biddings.Add(bidding);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -76,7 +96,7 @@ namespace MainCRM.Controllers
             ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName", bidding.DepartementID);
             ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName", bidding.InstanceID);
             ViewBag.ModulID = new SelectList(db.Moduls, "ModulID", "ModulTitle", bidding.ModulID);
-            ViewBag.ProgramID = new SelectList(db.Programs, "ProgramID", "ProgramName", bidding.ProgramID);
+            ViewBag.ProgramID = new SelectList(db.Programs, "ProgramID", "ProgramName", bidding.ProgramID); 
             return View(bidding);
         }
 

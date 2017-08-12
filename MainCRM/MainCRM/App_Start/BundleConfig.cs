@@ -15,6 +15,8 @@ namespace MainCRM
             RegisterForms(bundles);
             RegisterProgram(bundles);
             RegisterCompose(bundles);
+            RegisterTimePicker(bundles);
+            RegisterDashboard(bundles);
         }
 
         private static void RegisterCore(BundleCollection bundles)
@@ -48,10 +50,12 @@ namespace MainCRM
         
             // bootstrap
             bundles.Add(new ScriptBundle("~/Content/AdminLTE/css/js").Include(
-                "~/Content/AdminLTE/css/js/bootstrap.min.js"));
+                "~/Content/AdminLTE/css/js/bootstrap.min.js",
+                "~/Content/AdminLTE/plugins/datetimepicker/js/moment.js",
+                "~/Content/AdminLTE/plugins/datetimepicker/js/locale/id.js"));
 
             bundles.Add(new StyleBundle("~/Content/AdminLTE/css").Include(
-                      "~/Content/AdminLTE/css/bootstrap.css"));
+                      "~/Content/AdminLTE/css/bootstrap.min.css"));
 
             // admin-theme
             bundles.Add(new ScriptBundle("~/Content/AdminLTE/dist/js").Include(
@@ -92,7 +96,7 @@ namespace MainCRM
                                         "~/Content/AdminLTE/plugins/datatable/dataTables.bootstrap.css"));
             // plugins | jquery
             bundles.Add(new ScriptBundle("~/Content/AdminLTE/plugins/jquery/js").Include(
-                                         "~/Content/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"));
+                                         "~/Content/AdminLTE/plugins/jquery/js/jQuery-2.2.3.min.js"));
         }
         private static void RegisterTables(BundleCollection bundles)
         {
@@ -112,7 +116,11 @@ namespace MainCRM
             bundles.Add(new ScriptBundle("~/Scripts/select2").Include(
                 "~/Scripts/select2/select.js"));
         }
-
+        private static void RegisterDashboard(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/Scripts/dashboard").Include(
+                "~/Scripts/dashboard/Data.js"));
+        }
         private static void RegisterProgram(BundleCollection bundles)
         {
 
@@ -150,6 +158,33 @@ namespace MainCRM
                "~/Scripts/bidding/Data.js"));
             bundles.Add(new ScriptBundle("~/Scripts/bidding/sent").Include(
                "~/Scripts/bidding/Sent-menu.js"));
+        }
+        private static void RegisterTimePicker(BundleCollection bundles)
+        {
+
+            // plugins | timepicker
+           // bundles.Add(new ScriptBundle("~/Content/AdminLTE/plugins/timepicker/js").Include(
+                                         //"~/Content/AdminLTE/plugins/timepicker/js/bootstrap-timepicker.min.js"));
+
+           // bundles.Add(new StyleBundle("~/Content/AdminLTE/plugins/timepicker").Include(
+                                        //"~/Content/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.css"));
+
+            // plugins | datetimepicker
+            bundles.Add(new ScriptBundle("~/Content/AdminLTE/plugins/datetimepicker/js").Include(
+                                         
+                                         "~/Content/AdminLTE/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/AdminLTE/plugins/datetimepicker").Include(
+                                        "~/Content/AdminLTE/plugins/datetimepicker/bootstrap-datetimepicker.min.css"));
+
+            // plugins | daterangepicker
+            bundles.Add(new ScriptBundle("~/Content/AdminLTE/plugins/daterangepicker/js").Include(
+                                         "~/Content/AdminLTE/plugins/daterangepicker/js/daterangepicker.js",
+                                         "~/Content/AdminLTE/plugins/daterangepicker/js/moment.js"));
+
+            bundles.Add(new StyleBundle("~/Content/AdminLTE/plugins/daterangepicker").Include(
+                                        "~/Content/AdminLTE/plugins/daterangepicker/daterangepicker.css"));
+
         }
     }
 }

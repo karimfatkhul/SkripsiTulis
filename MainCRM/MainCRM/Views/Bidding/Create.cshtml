@@ -6,6 +6,7 @@
 }
 
 @Styles.Render("~/Content/AdminLTE/plugins/bootstrap-wysihtml5")
+@Styles.Render("~/Content/AdminLTE/plugins/select2")
 
 <!-- Main content -->
 <section class="content">
@@ -55,28 +56,28 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.InstanceID, "InstanceID", htmlAttributes: new { @class = "control-label" })
-                                @Html.DropDownList("InstanceID", null, "To:", htmlAttributes: new { @class = "form-control", @placeholder = "To", @id = "Insta" })
+                                @Html.DropDownList("InstanceID", null, "To:", htmlAttributes: new { @class = "form-control select2", @id = "Insta" })
                                 @Html.ValidationMessageFor(model => model.InstanceID, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.DepartementID, "DepartementID", htmlAttributes: new { @class = "control-label " })
-                                @Html.DropDownList("DepartementID", null, "Cc:", htmlAttributes: new { @class = "form-control", @placeholder = "Cc", @id = "Dept" })
+                                @Html.DropDownList("DepartementID", null, "Cc:", htmlAttributes: new { @class = "form-control select2", @id = "Dept"})
                                 @Html.ValidationMessageFor(model => model.DepartementID, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.ProgramID, "ProgramID", htmlAttributes: new { @class = "control-label " })
-                                @Html.DropDownList("ProgramID", null, "Select Program", htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("ProgramID", null, "Select Program", htmlAttributes: new { @class = "form-control select2", @id = "Prog" })
                                 @Html.ValidationMessageFor(model => model.ProgramID, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.ModulID, "ModulID", htmlAttributes: new { @class = "control-label " })
-                                @Html.DropDownList("ModulID", null, "Select Modul", htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("ModulID", null, "Select Module", htmlAttributes: new { @class = "form-control select2", @id = "Mod" })
                                 @Html.ValidationMessageFor(model => model.ModulID, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -147,14 +148,19 @@
 </section>
 <!-- /.content -->
 @section Scripts{
-    @Scripts.Render("~/Content/AdminLTE/plugins/bootstrap-wysihtml5/js");
+    @Scripts.Render("~/Content/AdminLTE/plugins/bootstrap-wysihtml5/js")
     @Scripts.Render("~/Scripts/bidding/sent")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Content/AdminLTE/plugins/select2/js")
+    @Scripts.Render("~/Scripts/select2")
     <script>
     $(function () {
         $('#Insta').change(function () {
-            $('#Dept').html("Cc:");
+            $('#Dept').html(null);
             $.getJSON('/Bidding/GetDepartement/' + $('#Insta').val(), function (data) {
+                $("#Dept").append(
+                 '<option>Cc:</option>'
+                 )
                 $.each(data, function (i, state) {
                     $("#Dept").append(
                     '<option value=' + state.Value + '>' + state.Text + '</option>')
@@ -164,8 +170,11 @@
     });
     $(function () {
         $('#Prog').change(function () {
-            $('#Mod').html("Select Modul");
+            $('#Mod').html(null);
             $.getJSON('/Bidding/GetModul/' + $('#Prog').val(), function (data) {
+                $("#Mod").append( 
+                 '<option>Select Modul</option>'
+                 )
                 $.each(data, function (i, state) {
                     $("#Mod").append(
                     '<option value=' + state.Value + '>' + state.Text + '</option>')

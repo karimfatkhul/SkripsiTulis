@@ -1,7 +1,7 @@
 ﻿@model MainCRM.Program
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Add";
     ViewBag.SubTitle = "Program";
 }
 
@@ -18,7 +18,6 @@
                         @Html.AntiForgeryToken()
 
                         <div class="col-md-8">
-                            <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
                                 <label class="control-label">Program Name</label>

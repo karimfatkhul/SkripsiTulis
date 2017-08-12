@@ -1,5 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Dashboard";
+    ViewBag.Title = "Niit crm";
+    ViewBag.SubTitle = "Dashboard";
 }
 <!-- Main content -->
 <section class="content">
@@ -81,3 +82,6 @@
     <!-- /.row -->
 </section>
 <!-- /.content -->
+@section Scripts{
+    @Scripts.Render("~/Scripts/dashboard/Data.js")
+    }

@@ -17,7 +17,6 @@
                         @Html.AntiForgeryToken()
 
                         <div class="col-md-8">
-                            <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             @Html.HiddenFor(model => model.InstanceID)
 
@@ -60,5 +59,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/datatable") 
+    @Scripts.Render("~/Scripts/datatable/menutarget")
 }

@@ -219,6 +219,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminLTE\css\bootstrap.min.css" />
     <Content Include="Content\AdminLTE\css\custom\custom.css" />
     <Content Include="Content\AdminLTE\css\js\bootstrap.min.js" />
     <Content Include="Content\AdminLTE\dist\AdminLTE.css" />
@@ -250,7 +251,11 @@
     <Content Include="Content\AdminLTE\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\AdminLTE\plugins\datatable\js\dataTables.bootstrap.min.js" />
     <Content Include="Content\AdminLTE\plugins\datatable\js\jquery.dataTables.min.js" />
-    <Content Include="Content\AdminLTE\plugins\datepicker\bootstrap-datepicker.id.js" />
+    <Content Include="Content\AdminLTE\plugins\datepicker\js\bootstrap-datepicker.id.js" />
+    <Content Include="Content\AdminLTE\plugins\datetimepicker\js\locale\id.js" />
+    <Content Include="Content\AdminLTE\plugins\datetimepicker\js\moment.js" />
+    <Content Include="Content\AdminLTE\plugins\datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\AdminLTE\plugins\datetimepicker\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\AdminLTE\plugins\font-awesome\font-awesome.min.css" />
     <Content Include="Content\AdminLTE\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\AdminLTE\plugins\fullcalendar\fullcalendar.min.css" />
@@ -264,11 +269,11 @@
     <Content Include="Content\AdminLTE\dist\skins\_all-skins.css" />
     <Content Include="Content\AdminLTE\plugins\bootstrap-wysihtml5\js\bootstrap3-wysihtml5.all.min.js" />
     <Content Include="Content\AdminLTE\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
-    <Content Include="Content\AdminLTE\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\AdminLTE\plugins\datepicker\js\bootstrap-datepicker.js" />
     <Content Include="Content\AdminLTE\plugins\datepicker\datepicker3.css" />
     <Content Include="Content\AdminLTE\plugins\daterangepicker\daterangepicker.css" />
-    <Content Include="Content\AdminLTE\plugins\daterangepicker\daterangepicker.js" />
-    <Content Include="Content\AdminLTE\plugins\daterangepicker\moment.min.js" />
+    <Content Include="Content\AdminLTE\plugins\daterangepicker\js\daterangepicker.js" />
+    <Content Include="Content\AdminLTE\plugins\daterangepicker\js\moment.min.js" />
     <Content Include="Content\AdminLTE\plugins\fastclick\fastclick.min.js" />
     <Content Include="Content\AdminLTE\plugins\iCheck\_all.css" />
     <Content Include="Content\AdminLTE\plugins\js\app.min.js" />
@@ -302,6 +307,7 @@
     </Content>
     <Content Include="Scripts\bidding\Data.js" />
     <Content Include="Scripts\bidding\Sent-menu.js" />
+    <Content Include="Scripts\bidding\status.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\AdminLTE\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -324,9 +330,11 @@
       <DependentUpon>NiitModelV2.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dashboard\Data.js" />
     <Content Include="Scripts\datatable\Datadept-menu.js" />
     <Content Include="Scripts\datatable\Data-menu.js" />
     <Content Include="Scripts\datatable\Datatarget-menu.js" />
+    <Content Include="Content\AdminLTE\plugins\jquery\js\jquery-2.2.3.min.js" />
     <Content Include="Scripts\program\Datamod-menu.js" />
     <Content Include="Scripts\program\Data-menu.js" />
     <Content Include="Scripts\program\Data.js" />

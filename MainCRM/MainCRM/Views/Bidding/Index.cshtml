@@ -50,8 +50,8 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.BiddingStatus)
+                                            <td class="a" id="c">
+                                               @Html.DisplayFor(modelItem => item.BiddingStatus, new { @id = "c" })
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.BiddingStage)
@@ -94,4 +94,5 @@
 @section Scripts {
     @Scripts.Render("~/Content/AdminLTE/plugins/datatable/js")
     @Scripts.Render("~/Scripts/bidding")
+    @Scripts.Render("~/Scripts/datatable")
 }

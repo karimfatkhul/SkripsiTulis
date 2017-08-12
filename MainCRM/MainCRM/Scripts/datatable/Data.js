@@ -6,3 +6,4 @@ $(function () {
 $(function () {
     $('#example2').DataTable();
 });
+
