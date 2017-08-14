@@ -6,13 +6,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MainCRM;
+using MainCRM.DAL;
+using System.Web.Helpers;
 
 namespace MainCRM.Controllers
 {
     public class BiddingController : Controller
     {
         private niitcarev2Entities db = new niitcarev2Entities();
+        private string Message = "Pesan ini";
 
         // GET: Bidding
         public ActionResult Index()
@@ -63,10 +65,11 @@ namespace MainCRM.Controllers
                 result = result.AddDays(1);
             return result;
         }
-
-        // GET: Bidding/Create
-        public ActionResult Create()
+    // GET: Bidding/Create
+    public ActionResult Create()
         {
+            
+            ViewData["Pesan"] = Message;
             ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName");
             ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName");
             ViewBag.ModulID = new SelectList(db.Moduls, "ModulID", "ModulTitle");
@@ -79,25 +82,68 @@ namespace MainCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BiddingID,InstanceID,DepartementID,ProgramID,ModulID,BiddingStatus,BiddingInformationDetail,BiddingStage,DateOfCurrentBidStatus,NextStep,DateOfNextStep,Qualified")] Bidding bidding)
+        public ActionResult Create([Bind(Include = "BiddingID,InstanceID,DepartementID,ProgramID,ModulID,BiddingStatus,BiddingInformationDetail,BiddingStage,DateOfCurrentBidStatus,NextStep,DateOfNextStep,Qualified")] Bidding bidding, string Pesan, string Sub)
         {
+            ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName", bidding.DepartementID);
+            ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName", bidding.InstanceID);
             if (ModelState.IsValid)
             {
+                ViewData["Subject"] = Sub;
+                ViewData["Pesan"] = Pesan;
+
                 DateTime now = DateTime.Now;
                 bidding.DateOfCurrentBidStatus = now;
                 bidding.DateOfNextStep = now.AddDays(7);
                 bidding.BiddingStage = "Stage1";
-                bidding.BiddingStatus = "Active";
+                bidding.BiddingStatus = Statusnya.Active.ToString();
                 db.Biddings.Add(bidding);
                 db.SaveChanges();
+                try
+                {
+                    //Configuring webMail class to send emails  
+                    //gmail smtp server  
+                    WebMail.SmtpServer = "smtp.gmail.com";
+                    //gmail port to send emails  
+                    WebMail.SmtpPort = 587;
+                    WebMail.SmtpUseDefaultCredentials = true;
+                    //sending emails with secure protocol  
+                    WebMail.EnableSsl = true;
+                    //EmailId used to send emails from application  
+                    WebMail.UserName = "karim.fatkhul@gmail.com";
+                    WebMail.Password = "aL-fatih1945";
+
+                    //Sender email address.  
+                    WebMail.From = "karim.fatkhul@gmail.com";
+                    var To = db.Instances
+                                .Where(b => b.InstanceID == bidding.InstanceID)
+                                .Select(c=>c.InstanceEmail)
+                                .FirstOrDefault();
+                    var Cc = db.Departements
+                                .Where(b => b.DepartementID == bidding.DepartementID)
+                                .Select(c => c.KeyContactEmail)
+                                .FirstOrDefault(); ;//from s in db.Departements where s.DepartementID == bidding.DepartementID select s.KeyContactEmail;
+                    //Send email  
+                    WebMail.Send(to: To, subject: Sub, body: Pesan, cc: Cc, isBodyHtml: true);
+                    ViewBag.Status = "Email Sent Successfully.";
+
+                }
+                catch (Exception)
+                {
+                    ViewBag.Status = "Problem while sending email, Please check details.";
+
+                }
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName", bidding.DepartementID);
-            ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName", bidding.InstanceID);
+            
             ViewBag.ModulID = new SelectList(db.Moduls, "ModulID", "ModulTitle", bidding.ModulID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ProgramID", "ProgramName", bidding.ProgramID); 
             return View(bidding);
+        }
+
+        public ActionResult Rd(Bidding bid)
+        {
+            return View(bid);
         }
 
         // GET: Bidding/Edit/5
@@ -112,6 +158,8 @@ namespace MainCRM.Controllers
             {
                 return HttpNotFound();
             }
+            var  a=bidding.Stat.ToString();
+            a = bidding.BiddingStatus;
             ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName", bidding.DepartementID);
             ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName", bidding.InstanceID);
             ViewBag.ModulID = new SelectList(db.Moduls, "ModulID", "ModulTitle", bidding.ModulID);
@@ -126,12 +174,16 @@ namespace MainCRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "BiddingID,InstanceID,DepartementID,ProgramID,ModulID,BiddingStatus,BiddingInformationDetail,BiddingStage,DateOfCurrentBidStatus,NextStep,DateOfNextStep,Qualified")] Bidding bidding)
         {
+            
+
             if (ModelState.IsValid)
             {
+                bidding.BiddingStatus = bidding.Stat.ToString();
                 db.Entry(bidding).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName", bidding.DepartementID);
             ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName", bidding.InstanceID);
             ViewBag.ModulID = new SelectList(db.Moduls, "ModulID", "ModulTitle", bidding.ModulID);

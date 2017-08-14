@@ -1,0 +1,24 @@
+﻿@model MainCRM.Bidding
+@using MainCRM.DAL
+@{
+    ViewBag.Title = "Rd";
+}
+
+<h2>Rd</h2>
+
+@using (Html.BeginForm())
+{
+    foreach (var item in Enum.GetValues(typeof(Statusnya)))
+    {
+        var id = TagBuilder.CreateSanitizedId(string.Format("{0}_{1}", "rdbtn", typeof(Statusnya)));
+        <div>
+            @Html.RadioButtonFor(s => s.Stat, item, new { id})
+            @Html.Label(item.ToString(),new {@for=id })
+        </div>
+        
+    }
+    <input type="submit" name="name" value="Submit"/>
+        <br />
+        @Html.Label("Pilihan: "+ Model.Stat)
+}
+

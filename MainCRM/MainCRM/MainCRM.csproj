@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\TargetController.cs" />
     <Compile Include="DAL\Progs.cs" />
+    <Compile Include="DAL\Sta.cs" />
     <Compile Include="DAL\Target.cs" />
     <Compile Include="Departement.cs">
       <DependentUpon>NiitModelV2.tt</DependentUpon>
@@ -419,6 +420,8 @@
     <Content Include="Views\Bidding\Details.cshtml" />
     <Content Include="Views\Bidding\Edit.cshtml" />
     <Content Include="Views\Bidding\Index.cshtml" />
+    <Content Include="Views\Bidding\Rd.cshtml" />
+    <Content Include="Views\Bidding\SendEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

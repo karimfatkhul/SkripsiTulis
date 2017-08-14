@@ -1,5 +1,5 @@
 ﻿@model MainCRM.Bidding
-
+@using MainCRM.DAL
 @{
     ViewBag.Title = "Edit";
     ViewBag.SubTitle = "Bidding";
@@ -54,8 +54,19 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.BiddingStatus, htmlAttributes: new { @class = "control-label " })
+                            
+                            @foreach (var item in Enum.GetValues(typeof(Statusnya)))
+                            {
+                                var id = TagBuilder.CreateSanitizedId(string.Format("{0}_{1}", "rdbtn", typeof(Statusnya)));
+                            <div>
+                            @Html.RadioButtonFor(model => model.Stat, item, new { id })
+                            @Html.Label(item.ToString(), new { @for = id })
+                            </div>
+                            } 
 
-                            @Html.EditorFor(model => model.BiddingStatus, null, new { htmlAttributes = new { @class = "form-control select2", @id = "Mod" } })
+
+                            @*@Html.DropDownList("BiddingStatus", null, htmlAttributes: new { @class = "form-control select2 " })*@
+    @Html.EditorFor(model => model.BiddingStatus, null, new { htmlAttributes = new { @class = "form-control ", @id = "Mod" } })
                             @Html.ValidationMessageFor(model => model.BiddingStatus, "", new { @class = "text-danger" })
 
                         </div>
