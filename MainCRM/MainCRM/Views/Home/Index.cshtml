@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MainCRM.Bidding
+@{
     ViewBag.Title = "Niit crm";
     ViewBag.SubTitle = "Dashboard";
 }
@@ -10,9 +11,10 @@
             <!-- small box -->
             <div class="small-box bg-teal">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>@ViewData["Active"]</h3>
 
-                    <p>Allowed Bidding</p>
+                    <p>
+                    Active Bidding in Stage1</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -24,7 +26,7 @@
             <!-- small box -->
             <div class="small-box bg-orange">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>@ViewData["Allowed"]</h3>
 
                     <p>Pending Bidding</p>
                 </div>
@@ -39,7 +41,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>@ViewData["Pending"]</h3>
                     <p>Failed Bidding</p>
                 </div>
                 <div class="icon">
@@ -53,7 +55,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>55</h3>
+                    <h3>@ViewData["Failed"]</h3>
                     <p>Succes Bidding</p>
                 </div>
                 <div class="icon">

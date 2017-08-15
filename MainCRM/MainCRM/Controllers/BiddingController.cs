@@ -14,7 +14,7 @@ namespace MainCRM.Controllers
     public class BiddingController : Controller
     {
         private niitcarev2Entities db = new niitcarev2Entities();
-        private string Message = "Pesan ini";
+        private string Message = "Tulis pesan di sini";
 
         // GET: Bidding
         public ActionResult Index()
@@ -158,8 +158,8 @@ namespace MainCRM.Controllers
             {
                 return HttpNotFound();
             }
-            var  a=bidding.Stat.ToString();
-            a = bidding.BiddingStatus;
+            //var  a=bidding.Stat.ToString();
+            //a = bidding.BiddingStatus;
             ViewBag.DepartementID = new SelectList(db.Departements, "DepartementID", "DepartementName", bidding.DepartementID);
             ViewBag.InstanceID = new SelectList(db.Instances, "InstanceID", "InstanceName", bidding.InstanceID);
             ViewBag.ModulID = new SelectList(db.Moduls, "ModulID", "ModulTitle", bidding.ModulID);
@@ -178,7 +178,7 @@ namespace MainCRM.Controllers
 
             if (ModelState.IsValid)
             {
-                bidding.BiddingStatus = bidding.Stat.ToString();
+                //bidding.BiddingStatus = bidding.Stat.ToString();
                 db.Entry(bidding).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -9,9 +9,9 @@
 
 namespace MainCRM
 {
-    using DAL;
     using System;
     using System.Collections.Generic;
+    
     public partial class Bidding
     {
         public int BiddingID { get; set; }
@@ -26,7 +26,7 @@ namespace MainCRM
         public string NextStep { get; set; }
         public Nullable<System.DateTime> DateOfNextStep { get; set; }
         public string Qualified { get; set; }
-        public Statusnya Stat { get; set; }
+    
         public virtual Departement Departement { get; set; }
         public virtual Instance Instance { get; set; }
         public virtual Modul Modul { get; set; }
